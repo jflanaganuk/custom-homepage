@@ -32,6 +32,11 @@ var searchEngines = [
         site:"duckduckgo.com",
         name:"DuckDuckGo",
         link:"https://duckduckgo.com/?q="
+    },
+    {
+        site:"bing.com",
+        name:"Bing",
+        link:"https://www.bing.com/search?q="
     }
 ];
 
