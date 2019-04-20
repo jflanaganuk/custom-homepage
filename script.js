@@ -205,4 +205,4 @@ for(var i = 0; i < bookmarks.length; i++) {
                     </li>`;
 }
 
-bookmarksContainer.innerHTML = '<h2>Bookmarks</h2><ul>' + bookmarksList + '</ul>';
+bookmarksContainer.innerHTML = '<ul>' + bookmarksList + '</ul>';

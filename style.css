@@ -71,6 +71,13 @@ img {
 #searchText:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 #searchText:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
+#bookmarkContainer {
+    max-height: 500px;
+    width: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 #bookmarkContainer ul {
     list-style: none;
 }
@@ -88,4 +95,12 @@ img {
 .favicon{
     width:16px;
     height:16px;
+}
+
+::-webkit-scrollbar {
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2c3e50;
 }
