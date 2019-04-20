@@ -17,6 +17,24 @@ function sanitizeNumber(input) {
 setInterval(function() {calculateTime()}, 1000);
 calculateTime();
 
+var searchEngines = [
+    {
+        site:"ecosia.org",
+        name:"Ecosia",
+        link:"https://ecosia.org/search?q=",
+    },
+    {
+        site:"google.com",
+        name:"Google",
+        link:"https://google.com/search?q="
+    },
+    {
+        site:"duckduckgo.com",
+        name:"DuckDuckGo",
+        link:"https://duckduckgo.com/?q="
+    }
+];
+
 var searchText = document.querySelector('#searchText');
 searchText.focus();
 searchText.select();
@@ -28,11 +46,37 @@ searchText.addEventListener("keyup", function(e){
     }
 });
 
+var currentSearchLink = searchEngines[0].link;
+var currentSearchText = searchEngines[0].name;
+
 function searchGoogle(){
     var searchValue = searchText.value;
     var sanitizedSearchValue = searchValue.replace(/ /g, '+');
-    window.location.href = 'https://ecosia.org/search?q=' + sanitizedSearchValue;
+    window.location.href = currentSearchLink + sanitizedSearchValue;
 }
+
+var searchSelectContainer = document.querySelector('#searchSelectContainer');
+
+var searchEnginesText = '';
+for(var i = 0; i < searchEngines.length; i++) {
+    searchEnginesText += `<li class="searchEngineChoice" id="${i}">
+                            <img class="favicon" src="https://www.google.com/s2/favicons?domain=${searchEngines[i].site}" alt="${searchEngines[i].name}" />
+                            ${searchEngines[i].name}
+                        </li>`;
+}
+
+searchSelectContainer.innerHTML = `<ul>${searchEnginesText}</ul>`;
+searchText.placeholder = `Search ${currentSearchText}`;
+
+var searchChoosers = document.querySelectorAll('.searchEngineChoice');
+searchChoosers.forEach(function(searchChooser){
+    searchChooser.onclick = function(e) {
+        var currentClick = e.target.id;
+        currentSearchLink = searchEngines[currentClick].link;
+        currentSearchText = searchEngines[currentClick].name;
+        searchText.placeholder = `Search ${currentSearchText}`;
+    }
+});
 
 var titles = [
     "JFlagg's Custom Homepage",
