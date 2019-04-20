@@ -51,8 +51,13 @@ searchText.addEventListener("keyup", function(e){
     }
 });
 
-var currentSearchLink = searchEngines[0].link;
-var currentSearchText = searchEngines[0].name;
+var storedSearchEngine = localStorage.getItem('currentSearchEngine');
+if (storedSearchEngine == null) {
+    storedSearchEngine = 0;
+}
+
+var currentSearchLink = searchEngines[storedSearchEngine].link;
+var currentSearchText = searchEngines[storedSearchEngine].name;
 
 function searchGoogle(){
     var searchValue = searchText.value;
@@ -77,6 +82,7 @@ var searchChoosers = document.querySelectorAll('.searchEngineChoice');
 searchChoosers.forEach(function(searchChooser){
     searchChooser.onclick = function(e) {
         var currentClick = e.target.id;
+        localStorage.setItem('currentSearchEngine', currentClick);
         currentSearchLink = searchEngines[currentClick].link;
         currentSearchText = searchEngines[currentClick].name;
         searchText.placeholder = `Search ${currentSearchText}`;
