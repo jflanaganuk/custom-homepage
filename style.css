@@ -179,3 +179,11 @@ img {
     font-size: 0.8rem;
     font-style: italic;
 }
+
+.newsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+}
