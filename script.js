@@ -274,6 +274,7 @@ for (var i = 0; i < bookmarks.length; i++) {
 bookmarksContainer.innerHTML = '<ul>' + bookmarksList + '</ul>';
 
 var newsApiSubmit = document.querySelector('.newsApiSubmit');
+var newsApiInfo = document.querySelector('.newsApiInfo');
 var newsApiKey = localStorage.getItem('newsApiKey');
 
 if (newsApiKey == null) {
@@ -337,4 +338,5 @@ function formatNewsFeed({articles}) {
   });
   newsFeed.innerHTML = newsFeedContent;
   newsApiSubmit.className = `${newsApiSubmit.className} hidden`;
+  newsApiInfo.className = `${newsApiInfo.className} hidden`;
 }
