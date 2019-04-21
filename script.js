@@ -323,7 +323,18 @@ function testNewsApiKey(apiKey) {
     })
 }
 
-function formatNewsFeed(newsFeed) {
+function formatNewsFeed({articles}) {
   var newsFeed = document.querySelector('.newsFeed');
-  newsFeed.innerHTML = `<pre><code>${newsFeed}</code></pre>`;
+  var newsFeedContent = '';
+  articles.map((article) => {
+    newsFeedContent += `<div class="articleContainer">
+      <a href="${article.url}">
+        <img class="articleImage" src="${article.urlToImage}" alt="${article.title}" />
+        <strong>${article.title}</strong>
+        <p>${article.description}</p>
+      </a>
+    </div>`;
+  });
+  newsFeed.innerHTML = newsFeedContent;
+  newsApiSubmit.className = `${newsApiSubmit.className} hidden`;
 }
