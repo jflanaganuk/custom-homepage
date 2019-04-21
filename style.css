@@ -230,3 +230,23 @@ img {
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+.newsApiSubmit {
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    width: 80%;
+}
+
+.newsApiSubmit:hover {
+    cursor: pointer;
+    animation: glowEffect 1s forwards;
+    outline: 0;
+}
+
+.newsApiSubmit:focus {
+    cursor: pointer;
+    animation: glowEffect 1s forwards;
+    outline: 0;
+}
