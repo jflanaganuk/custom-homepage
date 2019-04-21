@@ -261,3 +261,13 @@ for(var i = 0; i < bookmarks.length; i++) {
 }
 
 bookmarksContainer.innerHTML = '<ul>' + bookmarksList + '</ul>';
+
+var url = 'https://newsapi.org/v2/top-headlines?' +
+          'country=gb&' +
+          'apiKey=a79d401dad064409aff4c07c5810368d';
+var req = new Request(url);
+fetch(req)
+.then(response => response.json())
+.then(data => {
+    console.log(data);
+})
