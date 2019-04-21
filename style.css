@@ -142,3 +142,40 @@ img {
     z-index: -9999;
     position: absolute;
 }
+
+.hidden {
+    display: none;
+}
+
+.newsFeed {
+    height: 500px;
+    width: 400px;
+    overflow-x: hidden;
+}
+
+.articleContainer {
+    padding: 5px;
+}
+
+.articleContainer a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+
+.articleImage {
+    object-fit: contain;
+    height: initial;
+    margin-bottom: 5px;
+}
+
+.newsLink {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.newsLink a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 0.8rem;
+    font-style: italic;
+}
