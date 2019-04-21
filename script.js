@@ -262,13 +262,31 @@ for(var i = 0; i < bookmarks.length; i++) {
 
 bookmarksContainer.innerHTML = '<ul>' + bookmarksList + '</ul>';
 
-var backgroundContainer = document.querySelector('.backgroundContainer');
-backgroundContainer.innerHTML = `<div style="
-    background-image: url(https://picsum.photos/1920/1080);
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    z-index: -9999;
-    position: absolute;
-    opacity: 0.5;
-"></div>`;
+var weatherApiKey = localStorage.getItem('weatherAPI');
+
+if (weatherApiKey) {
+    //do weather fetch
+} else {
+    var weatherApiSubmit = document.querySelector('.weatherApiSubmit');
+    weatherApiSubmit.addEventListener('keyup', function(e){
+        if(e.keyCode === 13) {
+            var tempKey = weatherApiSubmit.value;
+            testWeatherApiKey(tempKey);
+        }
+    });
+}
+
+function testWeatherApiKey(key) {
+    fetch(`https://api.darksky.net/forecast/${key}/37.8267,-122.4233`,{
+        mode:'no-cors'
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        return true;
+    })
+    .catch(e => {
+        console.error(e);
+    })
+    return false;
+}

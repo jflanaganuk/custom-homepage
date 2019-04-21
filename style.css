@@ -142,3 +142,26 @@ img {
     z-index: -9999;
     position: absolute;
 }
+
+.weatherContainer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weatherContainer .submitArrow {
+    height: 24px;
+    width: 24px;
+}
+
+.weatherContainer input {
+    padding: 5px;
+    border-radius: 15px;
+    font-size: 1rem;
+    border: 1px solid grey;
+}
