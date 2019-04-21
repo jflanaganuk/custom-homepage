@@ -326,9 +326,8 @@ function testNewsApiKey(apiKey) {
 
 function formatNewsFeed({articles}) {
   var newsFeed = document.querySelector('.newsFeed');
-  var newsFeedContent = '';
-  articles.map((article) => {
-    newsFeedContent += `<div class="articleContainer">
+  var newsFeedContent = articles.map((article) => {
+    return `<div class="articleContainer">
       <a href="${article.url}">
         <img class="articleImage" src="${article.urlToImage}" alt="${article.title}" />
         <strong>${article.title}</strong>
@@ -336,7 +335,16 @@ function formatNewsFeed({articles}) {
       </a>
     </div>`;
   });
-  newsFeed.innerHTML = newsFeedContent;
+  newsFeed.innerHTML = newsFeedContent.join("");
   newsApiSubmit.className = `${newsApiSubmit.className} hidden`;
   newsApiInfo.className = `${newsApiInfo.className} hidden`;
 }
+
+var newBookmarkButton = document.querySelector('#newBookmarkButton');
+var overlay = document.querySelector('.overlay');
+var newBookmarkForm = document.querySelector('.newBookmarkForm');
+
+newBookmarkButton.addEventListener('click', function(e){
+  newBookmarkForm.className = 'newBookmarkForm';
+  overlay.className = 'overlay';
+});

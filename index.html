@@ -22,9 +22,20 @@
         <input id="searchText" type="text">
         <div id="searchSelectContainer"></div>
     </div>
-    <div>
+    <div class="bookmarkSectionContainer">
         <h2>Bookmarks</h2>
         <div id="bookmarkContainer"></div>
+        <input type="button" class="greenButton" id="newBookmarkButton" value="Add Bookmark">
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="newBookmarkForm hidden">
+        <h2>New Bookmark</h2>
+        <label for="bookmarkName">Name:</label>
+        <input type="text" name="bookmarkName" id="bookmarkName">
+        <label for="bookmarkSite">Site:</label>
+        <input type="text" name="bookmarkSite" id="bookmarkSite">
+        <label for="bookmarkLink">Link:</label>
+        <input type="text" name="bookmarkLink" id="bookmarkLink">
     </div>
 </body>
 <script src="script.js"></script>

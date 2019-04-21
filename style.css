@@ -145,6 +145,7 @@ img {
 
 .hidden {
     display: none;
+    visibility: hidden;
 }
 
 .newsFeed {
@@ -186,4 +187,46 @@ img {
     justify-content: center;
     align-items: center;
     width: 500px;
+}
+
+.bookmarkSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greenButton {
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.greenButton:hover {
+    cursor: pointer;
+    background-color: #3cc274;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.3;
+}
+
+.newBookmarkForm {
+    position: absolute;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
