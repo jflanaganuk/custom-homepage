@@ -1,10 +1,16 @@
-body {
+html, body {
     background-color: #fff;
     color: #2c3e50;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.mainContainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .container {
@@ -148,24 +154,40 @@ img {
 }
 
 .newsFeed {
-    height: 500px;
-    width: 400px;
-    overflow-x: hidden;
 }
 
 .articleContainer {
-    padding: 5px;
+    background: none;
 }
 
 .articleContainer a {
     text-decoration: none;
-    color: #2c3e50;
+    color: #fff;
+    position: relative;
 }
 
 .articleImage {
-    object-fit: contain;
-    height: initial;
-    margin-bottom: 5px;
+    background-attachment: fixed;
+    height: 150vh;
+    width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.articleImage strong {
+    font-size: 300%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.articleImage p {
+    font-size: 150%;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 .newsLink {
@@ -185,5 +207,68 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 500px;
+    width: 100vw;
+}
+
+
+.bookmarkSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.greenButton {
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.greenButton:hover {
+    cursor: pointer;
+    background-color: #3cc274;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.3;
+}
+
+.newBookmarkForm {
+    position: absolute;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.newsApiSubmit {
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    width: 80%;
+}
+
+.newsApiSubmit:hover {
+    cursor: pointer;
+    animation: glowEffect 1s forwards;
+    outline: 0;
+}
+
+.newsApiSubmit:focus {
+    cursor: pointer;
+    animation: glowEffect 1s forwards;
+    outline: 0;
 }
