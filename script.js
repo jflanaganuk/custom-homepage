@@ -330,9 +330,10 @@ function formatNewsFeed({articles}) {
   articles.map((article) => {
     newsFeedContent += `<div class="articleContainer">
       <a href="${article.url}">
-        <img class="articleImage" src="${article.urlToImage}" alt="${article.title}" />
+        <div class="articleImage" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${article.urlToImage})">
         <strong>${article.title}</strong>
         <p>${article.description}</p>
+        </div>
       </a>
     </div>`;
   });
