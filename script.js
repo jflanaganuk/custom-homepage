@@ -328,11 +328,12 @@ function formatNewsFeed({articles}) {
   var newsFeed = document.querySelector('.newsFeed');
   var newsFeedContent = '';
   articles.map((article) => {
+    const author = article.author !== null ? article.author : "";
     newsFeedContent += `<div class="articleContainer">
       <a href="${article.url}">
         <div class="articleImage" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${article.urlToImage})">
-        <strong>${article.title}</strong>
-        <p>${article.description}</p>
+          <strong class="articleTitle">${article.title}</strong>
+          <p class="articleDescription">${article.description}</p>
         </div>
       </a>
     </div>`;

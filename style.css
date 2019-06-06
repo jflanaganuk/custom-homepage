@@ -179,18 +179,6 @@ img {
     flex-direction: column;
 }
 
-.articleImage strong {
-    font-size: 300%;
-    padding-left: 10vw;
-    padding-right: 10vw;
-}
-
-.articleImage p {
-    font-size: 150%;
-    padding-left: 10vw;
-    padding-right: 10vw;
-}
-
 .newsLink {
     text-align: right;
     margin-top: 5px;
@@ -272,4 +260,28 @@ img {
     cursor: pointer;
     animation: glowEffect 1s forwards;
     outline: 0;
+}
+
+.articleDescription {
+    max-width: 25vw;
+    align-self: flex-start;
+    font-size: 150%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.articleTitle {
+    font-size: 300%;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    width: 80vw;
+}
+
+.articleTitle::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    display: block;
+    margin-top: 20px;
 }
