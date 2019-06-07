@@ -168,7 +168,7 @@ img {
 
 .articleImage {
     background-attachment: fixed;
-    height: 150vh;
+    height: 200vh;
     width: 100vw;
     background-size: cover;
     background-repeat: no-repeat;
@@ -284,4 +284,13 @@ img {
     background-color: white;
     display: block;
     margin-top: 20px;
+}
+
+.scroll {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* scrollmagic cant seem to calculate widths correctly hence the following */
+    width: 100% !important;
+    left: 0 !important;
 }

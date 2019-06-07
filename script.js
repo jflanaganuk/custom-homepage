@@ -114,165 +114,6 @@ title.innerHTML = chosenTitle;
 var h1title = document.querySelector('#title');
 h1title.innerHTML = chosenTitle;
 
-var bookmarks = [
-  {
-    site: 'youtube.com',
-    name: 'Youtube - Subscriptions',
-    link: 'http://www.youtube.com/feed/subscriptions'
-  },
-  {
-    site: 'reddit.com/',
-    name: 'Reddit',
-    link: 'http://old.reddit.com'
-  },
-  {
-    site: 'halifax.co.uk',
-    name: 'Halifax',
-    link: 'https://www.halifax-online.co.uk/personal/logon/login.jsp'
-  },
-  {
-    site: 'deathbulge.com',
-    name: 'Deathbulge',
-    link: 'http://www.deathbulge.com/index.php/'
-  },
-  {
-    site: 'howtogeek.com',
-    name: 'HowToGeek',
-    link: 'http://www.howtogeek.com/'
-  },
-  {
-    site: '9gag.com',
-    name: '9gag',
-    link: 'http://9gag.com/'
-  },
-  {
-    site: 'amazon.co.uk',
-    name: 'Amazon - Shopping',
-    link: 'http://smile.amazon.co.uk/'
-  },
-  {
-    site: 'uploadr.co.uk',
-    name: 'Uploadr',
-    link: 'http://uploadr.co.uk/'
-  },
-  {
-    site: 'assets/sonarr.png',
-    name: 'Sonarr',
-    link: 'http://www.uploadr.co.uk:38082/',
-    custom: true
-  },
-  {
-    site: 'assets/radarr.png',
-    name: 'Radarr',
-    link: 'http://www.uploadr.co.uk:38083/',
-    custom: true
-  },
-  {
-    site: 'assets/plex.png',
-    name: 'Plex',
-    link: 'http://www.uploadr.co.uk:32401/web/index.html',
-    custom: true
-  },
-  {
-    site: 'nzbplanet.net',
-    name: 'NzbPlanet',
-    link: 'http://nzbplanet.net/'
-  },
-  {
-    site: 'facebook.com',
-    name: 'Facebook',
-    link: 'https://www.facebook.com/'
-  },
-  {
-    site: 'spotify.com',
-    name: 'Spotify',
-    link: 'https://open.spotify.com/browse/featured'
-  },
-  {
-    site: 'mcdee.net',
-    name: 'Elite Dangerous - bindings',
-    link: 'https://www.mcdee.net/elite/binds/pinthz?replay=pinthz'
-  },
-  {
-    site: 'phaser.io',
-    name: 'Phaser - JS Game Library',
-    link: 'http://phaser.io/tutorials/coding-tips-007'
-  },
-  {
-    site: 'npmjs.com',
-    name: 'Patchwire',
-    link: 'https://www.npmjs.com/package/patchwire'
-  },
-  {
-    site: 'github.com',
-    name: 'Patchwire - wiki',
-    link: 'https://github.com/twisterghost/patchwire/wiki'
-  },
-  {
-    site: 'nctx.co.uk',
-    name: 'NCTX Transport',
-    link: 'https://www.nctx.co.uk/my/login'
-  },
-  {
-    site: 'scrollmagic.io',
-    name: 'Scrollmagic',
-    link: 'http://scrollmagic.io/'
-  },
-  {
-    site: 'stackexchange.com',
-    name: 'Stackexchange',
-    link:
-      'https://gamedev.stackexchange.com/questions/47557/when-and-where-should-i-calculate-collision-response-with-multiplayer-physics'
-  },
-  {
-    site: 'github.com',
-    name: 'Rust lang',
-    link: 'https://github.com/rust-lang/book/tree/master/src'
-  },
-  {
-    site: 'slack.com',
-    name: 'JH - Slack',
-    link: 'https://jh.slack.com/messages'
-  },
-  {
-    site: 'myanimelist.net',
-    name: 'Watch Naruto without filler',
-    link: 'https://myanimelist.net/forum/?topicid=350747'
-  },
-  {
-    site: 'whatshouldisteam.com',
-    name: 'What should I play on steam?',
-    link: 'https://whatshouldisteam.com/play/76561198004838769'
-  },
-  {
-    site: 'rtorr.com',
-    name: 'Vim Shortcuts',
-    link: 'https://vim.rtorr.com/'
-  },
-  {
-    site: 'github.io',
-    name: 'Service Worker Basics',
-    link: 'https://googlechrome.github.io/samples/service-worker/basic/'
-  }
-];
-
-var bookmarksContainer = document.querySelector('#bookmarkContainer');
-
-var bookmarksList = '';
-
-for (var i = 0; i < bookmarks.length; i++) {
-  bookmarksList += `<li>
-                        <a href="${bookmarks[i].link}">
-                            <img class="favicon" src="https://www.google.com/s2/favicons?domain=${
-                              bookmarks[i].site
-                            }" alt="${bookmarks[i].name}"/>
-                            ${bookmarks[i].name}
-                        </a>
-                    </li>`;
-}
-
-bookmarksContainer.innerHTML = '<ul>' + bookmarksList + '</ul>';
-
 var newsApiSubmit = document.querySelector('.newsApiSubmit');
 var newsApiInfo = document.querySelector('.newsApiInfo');
 var newsApiKey = localStorage.getItem('newsApiKey');
@@ -327,13 +168,14 @@ function testNewsApiKey(apiKey) {
 function formatNewsFeed({articles}) {
   var newsFeed = document.querySelector('.newsFeed');
   var newsFeedContent = '';
-  articles.map((article) => {
-    const author = article.author !== null ? article.author : "";
+  articles.map((article, index) => {
+    const desc = article.description !== null ? article.description : "";
     newsFeedContent += `<div class="articleContainer">
       <a href="${article.url}">
         <div class="articleImage" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${article.urlToImage})">
-          <strong class="articleTitle">${article.title}</strong>
-          <p class="articleDescription">${article.description}</p>
+            <div id="trigger${index}" class="scroll"></>
+            <strong class="articleTitle">${article.title}</strong>
+            <p class="articleDescription">${desc}</p>
         </div>
       </a>
     </div>`;
@@ -341,4 +183,21 @@ function formatNewsFeed({articles}) {
   newsFeed.innerHTML = newsFeedContent;
   newsApiSubmit.className = `${newsApiSubmit.className} hidden`;
   newsApiInfo.className = `${newsApiInfo.className} hidden`;
+  bindScrollMagicPins();
 }
+
+var controller = new ScrollMagic.Controller();
+
+function bindScrollMagicPins() {
+
+  (function(){
+    var elements = document.querySelectorAll('.scroll');
+
+    elements.forEach((element, index) => {
+      var duration = 700;
+      new ScrollMagic.Scene({triggerElement: `#${element.id}`, duration: duration})
+      .setPin(`#trigger${index}`)
+      .addTo(controller);
+    })
+  })();
+};
