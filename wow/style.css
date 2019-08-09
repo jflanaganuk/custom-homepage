@@ -1,0 +1,61 @@
+@font-face {
+  font-family: Sempliticita;
+  src: url("assets/semplicita-bold.woff2");
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 2rem;
+}
+
+.videoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url("./assets/WOWClassicBG.mp4");
+  height: 100vh;
+}
+
+.videoContainer .bgVideo {
+  position: absolute;
+  top: 0;
+  z-index: -9999;
+}
+
+.videoContainer .logo {
+  width: 50vw;
+  margin-bottom: 150px;
+}
+
+.floatingTimerContainer {
+  width: 100vw;
+  min-height: 100px;
+  height: calc(20vh - 10vw);
+  background-image: url("./assets/bg.jpg");
+  border-top: 5px solid black;
+  position: absolute;
+  bottom: 0px;
+  left: calc(50vw - 50vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */
