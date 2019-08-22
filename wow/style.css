@@ -36,8 +36,10 @@ body {
 }
 
 .videoContainer .logo {
-  width: 50vw;
-  margin-bottom: 150px;
+  width: 20vw;
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
 .floatingTimerContainer {
